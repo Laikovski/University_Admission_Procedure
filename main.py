@@ -27,4 +27,38 @@
 
 # Stage 4/7: Choose your path
 
+number_of_students = int(input())
+# open and read file
+f = open('applicants.txt', "rt")
 
+
+#create dictionary
+dic_student = []
+GPA = {
+    'Biotech': [],
+    'Chemistry': [],
+    'Engineering': [],
+    'Mathematics': [],
+    'Physics': []
+}
+while True:
+    line = f.readline()
+    if not line:
+        break
+    str = line.strip().split(' ')
+    dic_student.append({'name': str[0] + ' ' + str[1], 'ball': str[2], 'depart': [str[3], str[4], str[5]]})
+
+# add students to GPA
+for student in dic_student:
+    for sub in GPA:
+        if student['depart'][0] == sub:
+            GPA[sub].append([student['name'],student['ball']])
+
+# sort and filter student
+c = 0
+
+for i in GPA:
+    GPA[i] = sorted(GPA[i], key= lambda elem: elem[0])
+    GPA[i] = sorted(GPA[i], key= lambda elem: elem[1], reverse=True)
+    GPA[i] = GPA[i][:number_of_students]
+    print(GPA[i])
