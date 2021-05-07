@@ -55,10 +55,24 @@ for student in dic_student:
             GPA[sub].append([student['name'],student['ball']])
 
 # sort and filter student
-c = 0
+# c = 0
 
 for i in GPA:
     GPA[i] = sorted(GPA[i], key= lambda elem: elem[0])
     GPA[i] = sorted(GPA[i], key= lambda elem: elem[1], reverse=True)
     GPA[i] = GPA[i][:number_of_students]
-    print(GPA[i])
+#print students
+for item in GPA:
+    print(item, len(GPA[item]))
+    for student in GPA[item]:
+        print(f'{student[0]} {student[1]}')
+    print('')
+
+for item in GPA:
+    for student in GPA[item]:
+        # print(student[0])
+        for old_student in dic_student:
+            if old_student['name'] == student[0]:
+                dic_student.remove(old_student)
+
+print(dic_student)
