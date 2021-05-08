@@ -31,7 +31,6 @@ number_of_students = int(input())
 # open and read file
 f = open('applicants.txt', "rt")
 
-
 #create dictionary
 dic_student = []
 GPA = {
@@ -41,6 +40,8 @@ GPA = {
     'Mathematics': [],
     'Physics': []
 }
+
+#work with input file
 while True:
     line = f.readline()
     if not line:
@@ -48,31 +49,33 @@ while True:
     str = line.strip().split(' ')
     dic_student.append({'name': str[0] + ' ' + str[1], 'ball': str[2], 'depart': [str[3], str[4], str[5]]})
 
+#sort student
+def sort_student():
+    for i in GPA:
+        GPA[i] = sorted(GPA[i], key= lambda elem: elem[0])
+        GPA[i] = sorted(GPA[i], key= lambda elem: elem[1], reverse=True)
+        # GPA[i] = GPA[i][:number_of_students]
+
+#delete student
+def cler_arr():
+    for item in GPA:
+        for student in GPA[item]:
+            for old_student in dic_student:
+                if old_student['name'] == student[0]:
+                    dic_student.remove(old_student)
+
 # add students to GPA
-for student in dic_student:
-    for sub in GPA:
-        if student['depart'][0] == sub:
-            GPA[sub].append([student['name'],student['ball']])
-
-# sort and filter student
-# c = 0
-
-for i in GPA:
-    GPA[i] = sorted(GPA[i], key= lambda elem: elem[0])
-    GPA[i] = sorted(GPA[i], key= lambda elem: elem[1], reverse=True)
-    GPA[i] = GPA[i][:number_of_students]
+for i in range(1):
+    for student in dic_student:
+        for sub in GPA:
+            if student['depart'][i] == sub:
+                GPA[sub].append([student['name'],student['ball']])
+    sort_student()
+    cler_arr()
 #print students
+# print(GPA)
 for item in GPA:
     print(item, len(GPA[item]))
     for student in GPA[item]:
         print(f'{student[0]} {student[1]}')
     print('')
-
-for item in GPA:
-    for student in GPA[item]:
-        # print(student[0])
-        for old_student in dic_student:
-            if old_student['name'] == student[0]:
-                dic_student.remove(old_student)
-
-print(dic_student)
