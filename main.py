@@ -33,49 +33,45 @@ f = open('applicants.txt', "rt")
 
 #create dictionary
 dic_student = []
-GPA = {
+
+subjects = {
     'Biotech': [],
     'Chemistry': [],
     'Engineering': [],
     'Mathematics': [],
     'Physics': []
 }
-
-#work with input file
 while True:
     line = f.readline()
     if not line:
         break
     str = line.strip().split(' ')
-    dic_student.append({'name': str[0] + ' ' + str[1], 'ball': str[2], 'depart': [str[3], str[4], str[5]]})
+    dic_student.append((str[0] + ' ' + str[1], str[2], [str[3], str[4], str[5]]))
 
-#sort student
-def sort_student():
-    for i in GPA:
-        GPA[i] = sorted(GPA[i], key= lambda elem: elem[0])
-        GPA[i] = sorted(GPA[i], key= lambda elem: elem[1], reverse=True)
-        # GPA[i] = GPA[i][:number_of_students]
+# sort student
+temp = sorted(dic_student, key=lambda pga: pga[0])
+new = sorted(temp, key=lambda pga: pga[1], reverse=True)
+rolled = []
+for i in range(3):
 
-#delete student
-def cler_arr():
-    for item in GPA:
-        for student in GPA[item]:
-            for old_student in dic_student:
-                if old_student['name'] == student[0]:
-                    dic_student.remove(old_student)
+    for student in new:
+        if student[2][i] == ' ':
+            continue
+        elif len(subjects[student[2][i]]) < number_of_students:
+            subjects[student[2][i]].append([student[0], student[1]])
 
-# add students to GPA
-for i in range(1):
-    for student in dic_student:
-        for sub in GPA:
-            if student['depart'][i] == sub:
-                GPA[sub].append([student['name'],student['ball']])
-    sort_student()
-    cler_arr()
-#print students
-# print(GPA)
-for item in GPA:
-    print(item, len(GPA[item]))
-    for student in GPA[item]:
+            student[2][0] = ' '
+            student[2][1] = ' '
+            student[2][2] = ' '
+
+for item in subjects:
+    x = sorted(subjects[item], key=lambda x: x[1], reverse=True)
+    # print(x)
+    print(item, len(subjects[item]))
+    for student in x:
         print(f'{student[0]} {student[1]}')
     print('')
+
+
+
+
