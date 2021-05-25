@@ -27,6 +27,53 @@
 
 # Stage 4/7: Choose your path
 
+# number_of_students = int(input())
+# # open and read file
+# f = open('applicants.txt', "rt")
+#
+# #create dictionary
+# dic_student = []
+#
+# subjects = {
+#     'Biotech': [],
+#     'Chemistry': [],
+#     'Engineering': [],
+#     'Mathematics': [],
+#     'Physics': []
+# }
+# while True:
+#     line = f.readline()
+#     if not line:
+#         break
+#     str = line.strip().split(' ')
+#     dic_student.append((str[0] + ' ' + str[1], str[2], [str[3], str[4], str[5]]))
+#
+# # sort student
+# temp = sorted(dic_student, key=lambda pga: pga[0])
+# new = sorted(temp, key=lambda pga: pga[1], reverse=True)
+# rolled = []
+# for i in range(3):
+#
+#     for student in new:
+#         if student[2][i] == ' ':
+#             continue
+#         elif len(subjects[student[2][i]]) < number_of_students:
+#             subjects[student[2][i]].append([student[0], student[1]])
+#
+#             student[2][0] = ' '
+#             student[2][1] = ' '
+#             student[2][2] = ' '
+#
+# for item in subjects:
+#     x = sorted(subjects[item], key=lambda x: x[1], reverse=True)
+#     # print(x)
+#     print(item, len(subjects[item]))
+#     for student in x:
+#         print(f'{student[0]} {student[1]}')
+#     print('')
+
+# Stage 5/7: Special knowledge
+
 number_of_students = int(input())
 # open and read file
 f = open('applicants.txt', "rt")
@@ -71,7 +118,3 @@ for item in subjects:
     for student in x:
         print(f'{student[0]} {student[1]}')
     print('')
-
-
-
-
