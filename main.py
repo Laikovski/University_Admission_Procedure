@@ -72,7 +72,7 @@
 #         print(f'{student[0]} {student[1]}')
 #     print('')
 
-# Stage 5/7: Special knowledge new
+# Stage 5/7: Special knowledge
 
 number_of_students = int(input())
 # open and read file
