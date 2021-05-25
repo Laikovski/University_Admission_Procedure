@@ -31,3 +31,6 @@
     - Sort applicants according to their GPA and priorities (and names, if their GPA score is the same). As in the previous stage, if two applicants to the same department have the same GPA, sort them by their full names in alphabetical order.
     - For each department, choose the N best candidates. Some departments are less popular than others, so there may be fewer available candidates for a department. However, their number shouldn't be more than N.
     - Print the departments in the alphabetic order (Biotech, Chemistry, Engineering, Mathematics, Physics), output the names and the GPA of enrolled applicants for each department. Separate the name and the GPA with a whitespace character. Here's an example (you may add empty lines between the departments' lists to increase the text readability):
+
+
+## Stage 5/7: Special knowledge 
