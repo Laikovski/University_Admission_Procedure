@@ -34,3 +34,10 @@
 
 
 ## Stage 5/7: Special knowledge 
+
+    
+    - Read an N integer. This integer represents the maximum number of students for each department.
+    - Read the file named applicants.txt once again. The structure has changed a bit: instead of the GPA column, each line contains four columns with scores for particular exams: physics, chemistry, math, computer science (in this order). For example, John Ritchie 89 45 83 75 Physics Engineering Mathematics.
+    - Take into account the following exam results for the departments: physics for the Physics department, chemistry for the Chemistry department, math for the Mathematics department, computer science for the Engineering, and chemistry (again) for the Biotech department.
+    - Do the same steps as in the previous stage: perform three stages of admission based on the applicants' priorities. Applicants should be ranked by their exam score and, in case they have the same score, their full name in alphabetic order. There should be no more than N accepted applicants for each department. One student can only be accepted to one department.
+    - One thing has changed — output the exam result (instead of the GPA) for each student:

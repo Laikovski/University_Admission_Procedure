@@ -73,7 +73,7 @@
 #     print('')
 
 # Stage 5/7: Special knowledge
-
+import math
 number_of_students = int(input())
 # open and read file
 f = open('applicants.txt', "rt")
@@ -93,7 +93,7 @@ while True:
     if not line:
         break
     str = line.strip().split(' ')
-    dic_student.append((str[0] + ' ' + str[1], str[2], [str[3], str[4], str[5]]))
+    dic_student.append((str[0] + ' ' + str[1], float(math.floor((int(str[2]) + int(str[3]) + int(str[4]) + int(str[5])) / 4)), [str[6], str[7], str[8]]))
 
 # sort student
 temp = sorted(dic_student, key=lambda pga: pga[0])
