@@ -41,3 +41,13 @@
     - Take into account the following exam results for the departments: physics for the Physics department, chemistry for the Chemistry department, math for the Mathematics department, computer science for the Engineering, and chemistry (again) for the Biotech department.
     - Do the same steps as in the previous stage: perform three stages of admission based on the applicants' priorities. Applicants should be ranked by their exam score and, in case they have the same score, their full name in alphabetic order. There should be no more than N accepted applicants for each department. One student can only be accepted to one department.
     - One thing has changed — output the exam result (instead of the GPA) for each student:
+
+## Stage 6/7: Extensive training 
+    
+    - Read an N integer from the input. This integer represents the maximum number of students for each department.
+    - Read the file named applicants.txt once again. The file has the same structure as in the previous stage.
+    - Consider the following exam results for departments: physics and math for the Physics department, chemistry for the Chemistry department, math for the Mathematics department, computer science and math for the Engineering Department, chemistry and physics for the Biotech department.
+    - As in the previous stage, the exams are listed in the following order for each applicant: physics, chemistry, math, computer science.
+    - For the departments that need several exams, calculate the mean score and use it to rank the applicants (use floating-point numbers with at least one decimal). Otherwise, use the result for a single exam.
+    - Keep the rest of the steps the same as in the previous stage (once again, there should be no more than N accepted applicants for each department; use the same principles for sorting).
+    - Instead of printing the results (you may do it if you want), output the admission lists to files. Create a file for each department, name it %department_name%.txt, for example, physics.txt. Write the names of the students accepted to the department and their mean finals score to the corresponding file (one student per line).
